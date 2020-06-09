@@ -30,14 +30,14 @@ We have to think about lambda functions at scale and lambda price model is a com
 
 We need to make sure that our package is small as possible and 
 
-* [Webpack](https://github.com/serverless-heaven/serverless-webpack) is the first place to start but, for me the package is between 2-4 times bigger than using webpack for your-self and provide the bundle file before the sls deploy
+* [Webpack](https://github.com/serverless-heaven/serverless-webpack) is the first place to start but, for me the package is between 2-4 times bigger than using webpack for yourself and provide the bundle file before the sls deploy
 * Optimize dependencies using small packages as possible and so never reference the full aws-sdk but, only what you need like DynamoDB, SQS, S3 etc
 
 Initialize your classed, SDK clients and database connections outside of the function handler, and cache static assets locally in the /tmp directory.
 This saves execution time and cost for subsequent invocations (Warm start)
 
 In this example I use SQS to trigger the lambda and based on the default batch of 10, the best way is to process all of them in parallel. 
-If for example the execution of the total logic for 1 SQS message is 1s, processing them sequentially would take let’s say 10s.
+If for example the execution of the total logic for 1 SQS message is 1s, processing them sequentially would take letï¿½s say 10s.
 Now doing all in parallel the total execution will be around 1s.
 
 **Tips**:
