@@ -1,0 +1,25 @@
+service: your-service-name
+
+provider:
+  name: aws
+  endpointType: REGIONAL
+  region: ${opt:region, 'eu-central-1'}
+  runtime: nodejs12.x
+  
+ custom:
+  .....
+  
+ package:
+  individually: true
+  exclude:
+    - ./**
+
+functions:
+  myFunc:
+    description: bla bla
+    runtime: nodejs12.x
+    handler: myFunc.handler
+    package:
+      include:
+        - myFunc.js
+    .....
