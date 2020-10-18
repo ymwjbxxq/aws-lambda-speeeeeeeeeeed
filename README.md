@@ -33,7 +33,7 @@ We need to make sure that our package is small as possible and
 * [Webpack](https://github.com/serverless-heaven/serverless-webpack) is the first place to start but, for me the package is between 2-4 times bigger than using webpack for yourself and provide the bundle file before the sls deploy
 * Optimize dependencies using small packages as possible and so never reference the full aws-sdk but, only what you need like DynamoDB, SQS, S3 etc
 
-Initialize your classed, SDK clients and database connections outside of the function handler, and cache static assets locally in the /tmp directory.
+Initialize your classes, SDK clients and database connections outside of the function handler, and cache static assets locally in the /tmp directory.
 This saves execution time and cost for subsequent invocations (Warm start)
 
 In this example I use SQS to trigger the lambda and based on the default batch of 10, the best way is to process all of them in parallel. 
