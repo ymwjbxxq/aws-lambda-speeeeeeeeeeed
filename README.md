@@ -1,7 +1,7 @@
 # SPEEEEEEEED #
 
-The code above contains few tricks to make your lambda fly. Most of time it could be overkilled to worry to save cents in the overall cost of lambda functions.
-We have to think about lambda functions at scale and lambda price model is a combination of memory and execution so we could say **TIME IS MONEY**.
+The code above contains a few tricks to make your lambda fly. Most of the time it could be overkilled to worry to save cents in the overall cost of lambda functions.
+We have to think about lambda functions at scale and the Lambda price model is a combination of memory and execution so we could say **TIME IS MONEY**.
 
 
 ### Lambda lifecycle ###
@@ -9,18 +9,18 @@ We have to think about lambda functions at scale and lambda price model is a com
 **Amazon optimization**:
 
 * Download your code
-* Start new container
+* Start a new container
 
 **Our optimization**: 
 
-* Boostrap the runtime
+* Bootstrap the runtime
 * Run your code
 
 **Cold start**:
 
 * Download your code
-* Start new container
-* Boostrap the runtime
+* Start a new container
+* Bootstrap the runtime
 
 **Warm start**:
 
@@ -30,7 +30,7 @@ We have to think about lambda functions at scale and lambda price model is a com
 
 We need to make sure that our package is small as possible and 
 
-* [Webpack](https://github.com/serverless-heaven/serverless-webpack) is the first place to start but, for me the package is between 2-4 times bigger than using webpack for yourself and provide the bundle file before the sls deploy
+* [Webpack](https://github.com/serverless-heaven/serverless-webpack) is the first place to start but, for me, the package is between 2-4 times bigger than using webpack for yourself and provide the bundle file before the sls deploy
 * Optimize dependencies using small packages as possible and so never reference the full aws-sdk but, only what you need like DynamoDB, SQS, S3 etc
 
 Initialize your classes, SDK clients and database connections outside of the function handler, and cache static assets locally in the /tmp directory.
