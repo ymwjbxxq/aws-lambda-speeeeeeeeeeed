@@ -30,7 +30,7 @@ We have to think about lambda functions at scale, and the Lambda price model is 
 
 We need to make sure that our package is small as possible and 
 
-* [Webpack](https://github.com/serverless-heaven/serverless-webpack) is the first place to start but, for me, the package is between 2-4 times bigger than using webpack for yourself and provide the bundle file before the sls deploy
+* [Webpack](https://github.com/serverless-heaven/serverless-webpack) is the first place to start
 * Optimize dependencies using small packages as possible and so never reference the full aws-sdk but, only what you need like DynamoDB, SQS, S3 etc
 
 Initialize your classes, SDK clients and database connections outside of the function handler, and cache static assets locally in the /tmp directory.
